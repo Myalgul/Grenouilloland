@@ -2,7 +2,7 @@
 #ifndef grenouilloland_hpp
 #define grenouilloland_hpp
 
-#include "Cellule.hpp"
+#include "Nenuphar.hpp"
 #include <vector>
 
 /**
@@ -15,7 +15,7 @@ class grenouilloland {
 public:
 
   /**
-   * Constructeur logique initialisant ce jeu avec des cellules mortes.
+   * Constructeur logique initialisant ce jeu avec des nenuphars mortes.
    *
    * @param[in] dimension - la valeur de @ref dimension_.
    */
@@ -36,19 +36,19 @@ public:
   const int& lireDimension() const;
 
   /**
-   * Retourne la cellule (en lecture seule) dont les numeros de lignes et de
+   * Retourne la nenuphar (en lecture seule) dont les numeros de lignes et de
    * colonnes sont fournis en arguments.
    *
    * @param[in] ligne - le numero de ligne.
    * @param[in] colonne - le numero de colonne.
-   * @return la cellule (en lecture seule) correspondante.
+   * @return la nenuphar (en lecture seule) correspondante.
    */
-  const Cellule& lireCellule(const int& ligne, const int& colonne) const;
+  const Nenuphar& lireNenuphar(const int& ligne, const int& colonne) const;
 
 public:
 
   /**
-   * Fait basculer la cellule dont les numeros de ligne et de colonne sont
+   * Fait basculer la nenuphar dont les numeros de ligne et de colonne sont
    * fournis en arguments, d'un état a un autre.
    *
    * @param[in] ligne - le numéro de ligne.
@@ -57,7 +57,7 @@ public:
   void basculer(const int& ligne, const int& colonne);
 
   /**
-   * Réinitialise ce jeu a partir de cellules mortes.
+   * Réinitialise ce jeu a partir de nenuphars mortes.
    */
   void reinitialiser();
 
@@ -90,9 +90,9 @@ protected:
   const int dimension_;
 
   /**
-   * Cellules de ce jeu.
+   * Nenuphars de ce jeu.
    */
-  std::vector< Cellule > cellules_;
+  std::vector< Nenuphar > nenuphars_;
 
 };
 

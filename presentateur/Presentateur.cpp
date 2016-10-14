@@ -39,7 +39,7 @@ Presentateur::lireDimensionMaximum() const {
  * lireModele. *
  ***************/
 
-const JeuDeLaVie&
+const grenouilloland&
 Presentateur::lireModele() const {
   return *ptrModele_;
 }

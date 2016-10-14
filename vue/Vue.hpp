@@ -53,9 +53,9 @@ public:
   /**
    * Accesseur.
    *
-   * @return la valeur de @ref titreJeuDeLaVie_.
+   * @return la valeur de @ref titregrenouilloland_.
    */
-  static const Glib::ustring lireTitreJeuDeLaVie();
+  static const Glib::ustring lireTitregrenouilloland();
 
   /**
    * Accesseur.
@@ -230,7 +230,7 @@ protected:
   /**
    * Jeu de la vie graphique de cette vue.
    */
-  std::unique_ptr< JeuDeLaVieGraphique > ptrgrenouillolandGraphique_;
+  std::unique_ptr< grenouillolandGraphique > ptrgrenouillolandGraphique_;
 
   /**
    * Contrôleur de la dimension du jeu de la vie de cette vue.

@@ -2,7 +2,7 @@
  * Définition de la classe grenouillolandGraphique. *
  ************************************************/
 
-#include "Presentateur.hpp"
+#include "../presentateur/Presentateur.hpp"
 
 /************************
  * GenerationGraphique. *

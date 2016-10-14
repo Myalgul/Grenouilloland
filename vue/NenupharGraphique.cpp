@@ -2,7 +2,7 @@
  * Définition de la classe NenupharGraphique. *
  *********************************************/
 
-#include "Presentateur.hpp"
+#include "../presentateur/Presentateur.hpp"
 
 /*********************
  * NenupharGraphique. *

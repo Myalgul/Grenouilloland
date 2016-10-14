@@ -50,7 +50,7 @@ public:
   /**
    * Accesseur.
    *
-   * @return la valeur de @ref jeuDeLaVieGraphique_.
+   * @return la valeur de @ref grenouillolandGraphique_.
    */
   const grenouillolandGraphique& liregrenouillolandGraphique() const;
 

@@ -2,13 +2,12 @@
 /**
  * @mainpage
  *
- * Le jeu de la vie.
+ * Le jeu de la grenouille.
  *
- * @author Emmanuel CAGNIOT - Emmanuel.Cagniot@ensicaen.fr
- * @date 18.6.2014
+ * @author Alex LECLEIR Valentin LEFEBVRE
  */
 
-#include "Presentateur.hpp"
+#include "presentateur/Presentateur.hpp"
 #include <iostream>
 #include <sstream>
 #include <cstdlib>

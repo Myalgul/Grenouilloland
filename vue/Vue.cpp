@@ -2,7 +2,7 @@
  * Définition de la classe Vue. *
  ********************************/
 
-#include "Presentateur.hpp"
+#include "../presentateur/Presentateur.hpp"
 
 /****************
  * initialiser. *

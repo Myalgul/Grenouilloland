@@ -1,8 +1,8 @@
 #ifndef Presentateur_hpp
 #define Presentateur_hpp
 
-#include "grenouilloland.hpp"
-#include "Vue.hpp"
+#include "../modele/grenouilloland.hpp"
+#include "../vue/Vue.hpp"
 
 /**
  * @class Presentateur Presentateur.hpp
@@ -78,18 +78,18 @@ public:
   void demarrer();
 
   /**
-   * Indique si la cellule du modèle dont les numéros de ligne et de colonne
+   * Indique si la nenuphar du modèle dont les numéros de ligne et de colonne
    * sont fournis en arguments, est vivante.
    *
    * @param[in] ligne - le numéro de ligne.
    * @param[in] colonne - le numéro de colonne.
-   * @return @c true si la cellule du modèle correspondante est vivante sinon
+   * @return @c true si la nenuphar du modèle correspondante est vivante sinon
    *   @c false.
    */
   bool estVivante(const int& ligne, const int& colonne) const;
 
   /**
-   * Fait basculer l'état de la cellule du modèle dont les numéros de ligne et
+   * Fait basculer l'état de la nenuphar du modèle dont les numéros de ligne et
    * de colonnes sont fournis en arguments.
    *
    * @param[in] ligne - le numéro de ligne.
@@ -98,12 +98,12 @@ public:
   void basculer(const int& ligne, const int& colonne);
 
   /**
-   * Calcule la génération de cellules suivante.
+   * Calcule la génération de nenuphars suivante.
    */
   void suivante();
 
   /**
-   * Réinitialise toutes les cellules du modèle avec des cellules mortes.
+   * Réinitialise toutes les nenuphars du modèle avec des nenuphars mortes.
    */
   void reinitialiser();
 

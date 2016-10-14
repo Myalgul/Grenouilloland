@@ -2,7 +2,7 @@
  * Définition de la classe. *
  ****************************/
 
-#include "Presentateur.hpp"
+#include "../presentateur/Presentateur.hpp"
 #include "Dimension.hpp"
 
 /**************
