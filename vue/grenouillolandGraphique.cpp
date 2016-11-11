@@ -1,5 +1,5 @@
 /************************************************
- * Définition de la classe grenouillolandGraphique. *
+ * Définition de la classe GrenouillolandGraphique. *
  ************************************************/
 
 #include "../presentateur/Presentateur.hpp"
@@ -8,7 +8,7 @@
  * GenerationGraphique. *
  ************************/
 
-grenouillolandGraphique::grenouillolandGraphique(const Glib::ustring& titre, Vue& vue):
+GrenouillolandGraphique::GrenouillolandGraphique(const Glib::ustring& titre, Vue& vue):
   Gtk::AspectFrame(titre),
   vue_(vue) {
 
@@ -19,7 +19,7 @@ grenouillolandGraphique::grenouillolandGraphique(const Glib::ustring& titre, Vue
   const Presentateur& presentateur = vue.lirePresentateur();
 
   // Obtention du modèle via le présentateur.
-  const grenouilloland& modele = presentateur.lireModele();
+  const Grenouilloland& modele = presentateur.lireModele();
 
   // Obtention de dimension du modèle.
   const int& dimension = modele.lireDimension();
@@ -41,7 +41,7 @@ grenouillolandGraphique::grenouillolandGraphique(const Glib::ustring& titre, Vue
  ************/
 
 const Vue&
-grenouillolandGraphique::lireVue() const {
+GrenouillolandGraphique::lireVue() const {
   return vue_;
 }
 
@@ -50,7 +50,7 @@ grenouillolandGraphique::lireVue() const {
  **********************/
 
 Vue&
-grenouillolandGraphique::lireVueModifiable() {
+GrenouillolandGraphique::lireVueModifiable() {
   return vue_;
 }
 
@@ -59,8 +59,8 @@ grenouillolandGraphique::lireVueModifiable() {
  ****************/
 
 void
-grenouillolandGraphique::mettreAJour(const Presentateur& presentateur) {
-  for (NenupharGraphique* ptrNenuphar : Nenuphars_) {
+GrenouillolandGraphique::mettreAJour(const Presentateur& presentateur) {
+  for (NenupharGraphique* ptrNenuphar : nenuphars_) {
     ptrNenuphar->mettreAJour(presentateur);
   }
 }

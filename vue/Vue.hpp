@@ -53,9 +53,9 @@ public:
   /**
    * Accesseur.
    *
-   * @return la valeur de @ref titregrenouilloland_.
+   * @return la valeur de @ref titreGrenouilloland_.
    */
-  static const Glib::ustring lireTitregrenouilloland();
+  static const Glib::ustring lireTitreGrenouilloland();
 
   /**
    * Accesseur.
@@ -230,7 +230,7 @@ protected:
   /**
    * Jeu de la vie graphique de cette vue.
    */
-  std::unique_ptr< grenouillolandGraphique > ptrgrenouillolandGraphique_;
+  std::unique_ptr< GrenouillolandGraphique > ptrgrenouillolandGraphique_;
 
   /**
    * Contrôleur de la dimension du jeu de la vie de cette vue.

@@ -13,7 +13,7 @@ Presentateur::Presentateur(const int& dimensionMinimum,
 			   const int& dimension):
   dimensionMinimum_(dimensionMinimum),
   dimensionMaximum_(dimensionMaximum),
-  ptrModele_(new grenouilloland(dimension)),
+  ptrModele_(new Grenouilloland(dimension)),
   ptrVue_(new Vue(*this)) {
 }
 
@@ -39,7 +39,7 @@ Presentateur::lireDimensionMaximum() const {
  * lireModele. *
  ***************/
 
-const grenouilloland&
+const Grenouilloland&
 Presentateur::lireModele() const {
   return *ptrModele_;
 }
@@ -113,6 +113,6 @@ Presentateur::reinitialiser() {
 
 void
 Presentateur::nouveauModele(const int& dimension) {
-  ptrModele_.reset(new grenouilloland(dimension));
+  ptrModele_.reset(new Grenouilloland(dimension));
 }
 

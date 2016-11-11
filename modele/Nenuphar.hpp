@@ -2,7 +2,7 @@
 #define Nenuphar_hpp
 
 // Déclaration incomplète de la classe grenouilloland.
-class grenouilloland;
+class Grenouilloland;
 
 /**
  * @class Nenuphar Nenuphar.hpp
@@ -80,7 +80,7 @@ public:
    * @param[in,out] proprietaire - le jeu de la vie propriétaire de cette
    *   nenuphar.
    */
-  void mettreAJour(grenouilloland& proprietaire);
+  void mettreAJour(Grenouilloland& proprietaire);
 
 protected:
 

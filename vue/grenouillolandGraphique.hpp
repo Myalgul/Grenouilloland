@@ -1,5 +1,5 @@
-#ifndef grenouillolandGraphique_hpp
-#define grenouillolandGraphique_hpp
+#ifndef GrenouillolandGraphique_hpp
+#define GrenouillolandGraphique_hpp
 
 #include "NenupharGraphique.hpp"
 #include <gtkmm/aspectframe.h>
@@ -17,7 +17,7 @@ class Vue;
  *
  * @note Une instance de cette classe ne peut être dupliquée implicitement.
  */
-class grenouillolandGraphique: public Gtk::AspectFrame {
+class GrenouillolandGraphique: public Gtk::AspectFrame {
 public:
 
   // Déclarations d'amitié envers les classes Vue et NenupharGraphique.
@@ -32,7 +32,7 @@ public:
    * @param[in] titre - le titre du contour.
    * @param[in,out] vue - la valeur de @ref vue_.
    */
-  grenouillolandGraphique(const Glib::ustring& titre, Vue& vue);
+  GrenouillolandGraphique(const Glib::ustring& titre, Vue& vue);
 
 public:
 

@@ -3,7 +3,7 @@
  * Définition de la classe Nenuphar. *
  ************************************/
 
-#include "grenouilloland.hpp"
+#include "Grenouilloland.hpp"
 #include "Iterateur.hpp"
 
 /************
@@ -76,7 +76,7 @@ Nenuphar::archiver() {
  ****************/
 
 void
-Nenuphar::mettreAJour(grenouilloland& proprietaire) {
+Nenuphar::mettreAJour(Grenouilloland& proprietaire) {
 
   // Itérateur permettant de parcourir les huit voisines.
   Iterateur it(*this, proprietaire);

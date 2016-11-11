@@ -1,7 +1,7 @@
 #ifndef Presentateur_hpp
 #define Presentateur_hpp
 
-#include "../modele/grenouilloland.hpp"
+#include "../modele/Grenouilloland.hpp"
 #include "../vue/Vue.hpp"
 
 /**
@@ -54,7 +54,7 @@ public:
    *
    * @return la valeur pointée par @ref ptrModele_.
    */
-  const grenouilloland& lireModele() const;
+  const Grenouilloland& lireModele() const;
 
   /**
    * Accesseur.
@@ -78,18 +78,18 @@ public:
   void demarrer();
 
   /**
-   * Indique si la nenuphar du modèle dont les numéros de ligne et de colonne
+   * Indique si le nenuphar du modèle dont les numéros de ligne et de colonne
    * sont fournis en arguments, est vivante.
    *
    * @param[in] ligne - le numéro de ligne.
    * @param[in] colonne - le numéro de colonne.
-   * @return @c true si la nenuphar du modèle correspondante est vivante sinon
+   * @return @c true si le nenuphar du modèle correspondante est vivante sinon
    *   @c false.
    */
   bool estVivante(const int& ligne, const int& colonne) const;
 
   /**
-   * Fait basculer l'état de la nenuphar du modèle dont les numéros de ligne et
+   * Fait basculer l'état du nenuphar du modèle dont les numéros de ligne et
    * de colonnes sont fournis en arguments.
    *
    * @param[in] ligne - le numéro de ligne.
@@ -103,7 +103,7 @@ public:
   void suivante();
 
   /**
-   * Réinitialise toutes les nenuphars du modèle avec des nenuphars mortes.
+   * Réinitialise toutes les nenuphars du modèle avec des nenuphars morts.
    */
   void reinitialiser();
 
@@ -139,7 +139,7 @@ protected:
   /**
    * Modèle associé à ce presentateur.
    */
-  std::unique_ptr< grenouilloland > ptrModele_;
+  std::unique_ptr< Grenouilloland > ptrModele_;
 
   /**
    * Vue associée à ce présentateur.

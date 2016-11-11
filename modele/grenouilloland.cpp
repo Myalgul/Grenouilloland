@@ -1,14 +1,14 @@
 /***************************************
- * Définition de la classe grenouilloland. *
+ * Définition de la classe Grenouilloland. *
  ***************************************/
 
-#include "grenouilloland.hpp"
+#include "Grenouilloland.hpp"
 
 /***************
- * grenouilloland. *
+ * Grenouilloland. *
  ***************/
 
-grenouilloland::grenouilloland(const int& dimension):
+Grenouilloland::Grenouilloland(const int& dimension):
   dimension_(dimension) {
 
   // La méthode push_back invoque implicitement l'opérateur d'affectation par
@@ -29,7 +29,7 @@ grenouilloland::grenouilloland(const int& dimension):
  ******************/
 
 const int&
-grenouilloland::lireDimension() const {
+Grenouilloland::lireDimension() const {
   return dimension_;
 }
 
@@ -38,7 +38,7 @@ grenouilloland::lireDimension() const {
  ****************/
 
 const Nenuphar&
-grenouilloland::lireNenuphar(const int& ligne, const int& colonne) const {
+Grenouilloland::lireNenuphar(const int& ligne, const int& colonne) const {
   return nenuphars_[ligne * dimension_ + colonne];
 }
 
@@ -47,7 +47,7 @@ grenouilloland::lireNenuphar(const int& ligne, const int& colonne) const {
  *************/
 
 void
-grenouilloland::basculer(const int& ligne, const int& colonne) {
+Grenouilloland::basculer(const int& ligne, const int& colonne) {
   nenuphars_[ligne * dimension_ + colonne].basculer();
 }
 
@@ -56,7 +56,7 @@ grenouilloland::basculer(const int& ligne, const int& colonne) {
  ******************/
 
 void
-grenouilloland::reinitialiser() {
+Grenouilloland::reinitialiser() {
   for (Nenuphar& nenuphar : nenuphars_) {
     if (nenuphar.estVivante()) {
       nenuphar.basculer();
@@ -69,7 +69,7 @@ grenouilloland::reinitialiser() {
  *************/
 
 void
-grenouilloland::calculer(const int& iterations) {
+Grenouilloland::calculer(const int& iterations) {
   for (int i = 0; i < iterations; i ++) {
     suivante();
   }
@@ -80,7 +80,7 @@ grenouilloland::calculer(const int& iterations) {
  *************/
 
 void
-grenouilloland::suivante() {
+Grenouilloland::suivante() {
 
   // Premier balayage des nenuphars pour archivage.
   for (Nenuphar& nenuphar : nenuphars_) {

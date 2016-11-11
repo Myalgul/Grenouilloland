@@ -1,30 +1,30 @@
 
-#ifndef grenouilloland_hpp
-#define grenouilloland_hpp
+#ifndef Grenouilloland_hpp
+#define Grenouilloland_hpp
 
 #include "Nenuphar.hpp"
 #include <vector>
 
 /**
- * @class grenouilloland grenouilloland.hpp
+ * @class Grenouilloland Grenouilloland.hpp
  *
- * Déclaration de la classe grenouilloland représentant une implémentation
+ * Déclaration de la classe Grenouilloland représentant une implémentation
  * séquentielle du jeu de la vie.
  */
-class grenouilloland {
+class Grenouilloland {
 public:
 
   /**
-   * Constructeur logique initialisant ce jeu avec des nenuphars mortes.
+   * Constructeur logique initialisant ce jeu avec des nenuphars morts.
    *
    * @param[in] dimension - la valeur de @ref dimension_.
    */
-  grenouilloland(const int& dimension);
+  Grenouilloland(const int& dimension);
 
   /**
    * Destructeur redéfinissable.
    */
-  virtual ~grenouilloland() = default;
+  virtual ~Grenouilloland() = default;
 
 public:
 
@@ -36,19 +36,19 @@ public:
   const int& lireDimension() const;
 
   /**
-   * Retourne la nenuphar (en lecture seule) dont les numeros de lignes et de
+   * Retourne le nenuphar (en lecture seule) dont les numeros de lignes et de
    * colonnes sont fournis en arguments.
    *
    * @param[in] ligne - le numero de ligne.
    * @param[in] colonne - le numero de colonne.
-   * @return la nenuphar (en lecture seule) correspondante.
+   * @return le nenuphar (en lecture seule) correspondante.
    */
   const Nenuphar& lireNenuphar(const int& ligne, const int& colonne) const;
 
 public:
 
   /**
-   * Fait basculer la nenuphar dont les numeros de ligne et de colonne sont
+   * Fait basculer le nenuphar dont les numeros de ligne et de colonne sont
    * fournis en arguments, d'un état a un autre.
    *
    * @param[in] ligne - le numéro de ligne.
@@ -57,7 +57,7 @@ public:
   void basculer(const int& ligne, const int& colonne);
 
   /**
-   * Réinitialise ce jeu a partir de nenuphars mortes.
+   * Réinitialise ce jeu a partir de nenuphars morts.
    */
   void reinitialiser();
 
@@ -92,7 +92,7 @@ protected:
   /**
    * Nenuphars de ce jeu.
    */
-  std::vector< Nenuphar > nenuphars_;
+  std::vector< Nenuphar > nenuphar_;
 
 };
 

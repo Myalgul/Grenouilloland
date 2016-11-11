@@ -8,7 +8,7 @@
  * NenupharGraphique. *
  *********************/
 
-NenupharGraphique::NenupharGraphique(grenouillolandGraphique& grenouillolandGraphique,
+NenupharGraphique::NenupharGraphique(GrenouillolandGraphique& grenouillolandGraphique,
 				   const int& ligne,
 				   const int& colonne):
   grenouillolandGraphique_(grenouillolandGraphique),
@@ -50,7 +50,7 @@ NenupharGraphique::NenupharGraphique(grenouillolandGraphique& grenouillolandGrap
  * liregrenouillolandGraphique. *
  ****************************/
 
-const grenouillolandGraphique&
+const GrenouillolandGraphique&
 NenupharGraphique::liregrenouillolandGraphique() const {
   return grenouillolandGraphique_;
 }

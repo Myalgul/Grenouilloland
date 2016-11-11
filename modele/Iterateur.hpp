@@ -1,9 +1,9 @@
 #ifndef Iterateur_hpp
 #define Iterateur_hpp
 
-// Déclarations incomplètes des classes Nenuphar et grenouilloland.
+// Déclarations incomplètes des classes Nenuphar et Grenouilloland.
 class Nenuphar;
-class grenouilloland;
+class Grenouilloland;
 
 /**
  * @class Iterateur Iterateur.hpp
@@ -22,7 +22,7 @@ public:
    * @param[in] nenuphar - la valeur de @ref _nenuphar.
    * @param[in] proprietaire - la valeur de @ref _proprietaire.
    */
-  Iterateur(const Nenuphar& nenuphar, const grenouilloland& proprietaire);
+  Iterateur(const Nenuphar& nenuphar, const Grenouilloland& proprietaire);
 
 public:
 
@@ -38,7 +38,7 @@ public:
    *
    * @return la valeur de @ref _proprietaire.
    */
-  const grenouilloland& lireProprietaire() const;
+  const Grenouilloland& lireProprietaire() const;
 
   /**
    * Accesseur.
@@ -88,7 +88,7 @@ protected:
    * Instance (en lecture seule) du jeu de la vie propriétaire de la nenuphar
    * repèrée par cet itérateur.
    */
-  const grenouilloland& proprietaire_;
+  const Grenouilloland& proprietaire_;
 
   /**
    * Rang de la nenuphar voisine courante dans la liste des huit voisines.

@@ -3,13 +3,13 @@
  **************************************/
 
 #include "Iterateur.hpp"
-#include "grenouilloland.hpp"
+#include "Grenouilloland.hpp"
 
 /**************
  * Iterateur. *
  **************/
 
-Iterateur::Iterateur(const Nenuphar& nenuphar, const grenouilloland& proprietaire):
+Iterateur::Iterateur(const Nenuphar& nenuphar, const Grenouilloland& proprietaire):
   nenuphar_(nenuphar),
   proprietaire_(proprietaire),
   rang_(0) {
@@ -28,7 +28,7 @@ Iterateur::lireNenuphar() const {
  * lireProprietaire. *
  *********************/
 
-const grenouilloland&
+const Grenouilloland&
 Iterateur::lireProprietaire() const {
   return proprietaire_;
 }

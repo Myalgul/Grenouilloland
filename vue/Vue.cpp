@@ -35,7 +35,7 @@ Vue::lireTitreVue() {
  ************************/
 
 const Glib::ustring
-Vue::lireTitregrenouilloland() {
+Vue::lireTitreGrenouilloland() {
   return titregrenouilloland_;
 }
 
@@ -63,7 +63,7 @@ Vue::lireImage(const Glib::ustring& nom) {
 
 Vue::Vue(Presentateur& presentateur):
   presentateur_(presentateur),
-  ptrgrenouillolandGraphique_(new grenouillolandGraphique(titregrenouilloland_, *this)),
+  ptrgrenouillolandGraphique_(new GrenouillolandGraphique(titregrenouilloland_, *this)),
   dimension_(titreDimension_, *this) {
 
   // Titre de la vue.
@@ -275,7 +275,7 @@ Vue::cbChangerModele() {
   // Suppression de l'ancien jeu de la vie graphique et remplacement par le
   // nouveau.
   gestionnaireCentre_.remove(*ptrgrenouillolandGraphique_);
-  ptrgrenouillolandGraphique_.reset(new grenouillolandGraphique(titregrenouilloland_,
+  ptrgrenouillolandGraphique_.reset(new GrenouillolandGraphique(titregrenouilloland_,
 							*this));
   gestionnaireCentre_.pack_start(*ptrgrenouillolandGraphique_);
 
@@ -300,7 +300,7 @@ Vue::cbAPropos() {
   apropos.set_version("0.1");
   apropos.set_copyright("Emmanuel Cagniot - emmanuel.cagniot@ensicaen.fr");
   apropos.set_comments("TP C++/Gtkmm du M1 Info.");
-  apropos.set_authors({ "Emmanuel Cagniot" });
+  //apropos.set_authors({ "Emmanuel Cagniot" });
   apropos.set_logo(images_["jeudelavie"]);
 
   // Affichage du dialogue.

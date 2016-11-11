@@ -23,7 +23,7 @@ Dimension::Dimension(const Glib::ustring& titre, Vue& vue):
   const double incrPas = 1.0;
   const double incrPage = 2.0;
   const double taillePage = 0.0;
-  Glib::RefPtr< Gtk::Adjustment > ajustement =
+  /*Glib::RefPtr< Gtk::Adjustment > ajustement =
     Gtk::Adjustment::create(initiale,
 			    minimum,
 			    maximum,
@@ -37,7 +37,7 @@ Dimension::Dimension(const Glib::ustring& titre, Vue& vue):
 
   // Connection de l'événement value_changed à son callback.
   auto crochet = sigc::mem_fun(*this, &Dimension::cbChangementDeValeur);
-  ajustement->signal_value_changed().connect(crochet);
+  ajustement->signal_value_changed().connect(crochet);*/
 
 }
 

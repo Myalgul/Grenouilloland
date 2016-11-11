@@ -6,9 +6,9 @@
 #include <map>
 #include <memory>
 
-// Déclarations incomplètes des classes Presentateur et grenouillolandGraphique.
+// Déclarations incomplètes des classes Presentateur et GrenouillolandGraphique.
 class Presentateur;
-class grenouillolandGraphique;
+class GrenouillolandGraphique;
 
 /**
  * @class NenupharGraphique NenupharGraphique.hpp
@@ -22,8 +22,8 @@ class grenouillolandGraphique;
 class NenupharGraphique: public Gtk::EventBox {
 public:
 
-  // Déclaration d'amitié envers la classe grenouillolandGraphique.
-  friend class grenouillolandGraphique;
+  // Déclaration d'amitié envers la classe GrenouillolandGraphique.
+  friend class GrenouillolandGraphique;
 
 public:
 
@@ -34,9 +34,9 @@ public:
    * @param[in] ligne - la valeur de @ref ligne_.
    * @param[in] colonne - la valeur de @ref colonne_.
    */
-  NenupharGraphique(grenouillolandGraphique& grenouillolandGraphique,
-		   const int& ligne,
-		   const int& colonne);
+  NenupharGraphique(GrenouillolandGraphique& grenouillolandGraphique,
+					const int& ligne,
+					const int& colonne);
 
   /**
    * Constructeur par recopie.
@@ -50,9 +50,9 @@ public:
   /**
    * Accesseur.
    *
-   * @return la valeur de @ref grenouillolandGraphique_.
+   * @return la valeur de @ref GrenouillolandGraphique_.
    */
-  const grenouillolandGraphique& liregrenouillolandGraphique() const;
+  const GrenouillolandGraphique& liregrenouillolandGraphique() const;
 
   /**
    * Accesseur.
@@ -92,7 +92,7 @@ protected:
    * Représentation graphique du jeu de la vie propriétaire de cette nenuphar
    * graphique.
    */
-  grenouillolandGraphique& grenouillolandGraphique_;
+  GrenouillolandGraphique& grenouillolandGraphique_;
 
   /**
    * Numéro de ligne de cette nenuphar dans le modèle.
