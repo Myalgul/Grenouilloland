@@ -33,12 +33,20 @@ ElementSurface::lireColonne() const {
     return colonne_;
 }
 
-/******************
- * lireDimension. *
- ******************/
+/***********************
+ * lireRepresentation. *
+ ***********************/
 const std::string&
 ElementSurface::lireRepresentation() const {
     return representation_;
+}
+
+/*************************
+ * ecrireRepresentation. *
+ *************************/
+void
+ElementSurface::ecrireRepresentation(const std::string& new_rep) {
+    representation_ = new_rep;
 }
 
 /**************************

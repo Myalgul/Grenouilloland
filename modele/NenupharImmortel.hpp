@@ -13,6 +13,7 @@ public:
     using Nenuphar::Nenuphar;
     ~NenupharImmortel(){};
     void affectationGrenouille(Grenouille* grenouille) const override;
+    bool vieillir() override;
 };
 
 #endif // NenupharImmortel_hpp

@@ -12,6 +12,7 @@ public:
     */
     using ElementSurface::ElementSurface;
     void affectationGrenouille(Grenouille* grenouille) const override;
+    bool vieillir() override;
 
 public:
 

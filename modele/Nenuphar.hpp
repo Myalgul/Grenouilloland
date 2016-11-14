@@ -26,46 +26,23 @@ public:
     using ElementSurface::ElementSurface;
     ~Nenuphar(){};
     void affectationGrenouille(Grenouille* grenouille) const override;
+    bool vieillir() override;
 
 public:
 
     /**
     * Accesseur.
     *
-    * @return la valeur de @ref ligne_.
+    * @return la valeur de @ref taille_.
     */
-    const int& lireLigne() const;
-
-    /**
-    * Accesseur.
-    *
-    * @return la valeur de @ref colonne_.
-    */
-    const int& lireColonne() const;
-
-    /**
-    * Accesseur.
-    *
-    * @return la valeur de @ref colonne_.
-    */
-    const char& lireRepresentation() const;
+    const int& lireTaille() const;
 
 protected:
 
     /**
-    * Numéro de ligne de ce nenuphar.
-    */
-    int ligne_;
-
-    /**
-    * Numéro de colonne de ce nenuphar.
-    */
-    int colonne_;
-
-    /**
-    * Représentation de ce nenuphar.
-    */
-    int representation_;
+     * Taille de ce nenuphar.
+     */
+    int taille_ = 3;
 };
 
 #endif

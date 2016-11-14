@@ -1,33 +1,34 @@
-
 /************************************
  * Définition de la classe Nenuphar. *
  ************************************/
 
 #include "Grenouilloland.hpp"
 #include "Nenuphar.hpp"
+#include <string>
 
 /**************
- * lireLigne. *
+ * lireTaille. *
  **************/
-
 const int&
-Nenuphar::lireLigne() const {
-    return ligne_;
+Nenuphar::lireTaille() const {
+    return taille_;
 }
 
-/****************
- * lireColonne. *
- ****************/
-
-const int&
-Nenuphar::lireColonne() const {
-    return colonne_;
+/*************
+ * vieillir. *
+ *************/
+bool
+Nenuphar::vieillir() {
+    taille_--;
+    std::string tmp = lireRepresentation();
+    tmp.replace(1,1, std::to_string(taille_));
+    ecrireRepresentation(tmp);
+    return taille_ == 0;
 }
 
 /**************************
  * affectationGrenouille. *
  **************************/
-
 void
 Nenuphar::affectationGrenouille(Grenouille* grenouille) const {
 }

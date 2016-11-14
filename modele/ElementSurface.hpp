@@ -32,6 +32,7 @@ public:
     ElementSurface(const int& ligne, const int& colonne, const std::string& representation);
     virtual ~ElementSurface();
     virtual void affectationGrenouille(Grenouille* grenouille) const = 0;
+    virtual bool vieillir() = 0;
 
 public:
 
@@ -55,6 +56,13 @@ public:
     * @return la valeur de @ref representation_.
     */
     const std::string& lireRepresentation() const;
+
+    /**
+    * Accesseur.
+    *
+    * @return la valeur de @ref representation_.
+    */
+    void ecrireRepresentation(const std::string& new_rep);
 
 protected:
     /**

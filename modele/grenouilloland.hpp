@@ -71,17 +71,33 @@ public:
     /**
      *
      */
-    void modification (Grenouille* grenouille) const;
+    void modification () const;
 
     /**
      *
      */
-    bool gagner (Grenouille grenouille) const;
+    void maj();
 
     /**
      *
      */
-    bool perdu (Grenouille grenouille) const;
+    bool gagner () const;
+
+    /**
+     *
+     */
+    bool perdu () const;
+
+    /**
+     *
+     */
+    bool estSurChemin(const ElementSurface* element) const;
+
+public:
+    /**
+     *
+     */
+    Grenouille* lireGrenouille();
 
 protected:
 
@@ -96,6 +112,10 @@ protected:
     std::vector< ElementSurface* > elementSurface_;
 //    std::vector< ptr_Element > elementSurface_;
 
+    /**
+     * Grenouille de ce jeu.
+     */
+    Grenouille* ptrGrenouille_;
 };
 
 #endif
