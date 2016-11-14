@@ -2,7 +2,14 @@
 #ifndef Grenouilloland_hpp
 #define Grenouilloland_hpp
 
+#include "ElementSurface.hpp"
+#include "Eau.hpp"
 #include "Nenuphar.hpp"
+#include "NenupharImmortel.hpp"
+#include "NenupharDopant.hpp"
+#include "NenupharVeneneux.hpp"
+#include "NenupharNutritif.hpp"
+#include "NenupharMortel.hpp"
 #include <vector>
 
 /**
@@ -14,85 +21,79 @@
 class Grenouilloland {
 public:
 
-  /**
-   * Constructeur logique initialisant ce jeu avec des nenuphars morts.
-   *
-   * @param[in] dimension - la valeur de @ref dimension_.
-   */
-  Grenouilloland(const int& dimension);
+    /**
+     * Constructeur logique initialisant ce jeu avec des cellules mortes.
+     *
+     * @param[in] dimension - la valeur de @ref dimension_.
+     */
+    Grenouilloland(const int& dimension);
 
-  /**
-   * Destructeur redéfinissable.
-   */
-  virtual ~Grenouilloland() = default;
-
-public:
-
-  /**
-   * Accesseur.
-   *
-   * @return la valeur de @ref dimension_.
-   */
-  const int& lireDimension() const;
-
-  /**
-   * Retourne le nenuphar (en lecture seule) dont les numeros de lignes et de
-   * colonnes sont fournis en arguments.
-   *
-   * @param[in] ligne - le numero de ligne.
-   * @param[in] colonne - le numero de colonne.
-   * @return le nenuphar (en lecture seule) correspondante.
-   */
-  const Nenuphar& lireNenuphar(const int& ligne, const int& colonne) const;
+    /**
+     * Destructeur redéfinissable.
+     */
+    virtual ~Grenouilloland() = default;
 
 public:
 
-  /**
-   * Fait basculer le nenuphar dont les numeros de ligne et de colonne sont
-   * fournis en arguments, d'un état a un autre.
-   *
-   * @param[in] ligne - le numéro de ligne.
-   * @param[in] colonne - le numéro de colonne.
-   */
-  void basculer(const int& ligne, const int& colonne);
+    /**
+     * Accesseur.
+     *
+     * @return la valeur de @ref dimension_.
+     */
+    const int& lireDimension() const;
 
-  /**
-   * Réinitialise ce jeu a partir de nenuphars morts.
-   */
-  void reinitialiser();
+    /**
+     * Retourne la cellule (en lecture seule) dont les numeros de lignes et de
+     * colonnes sont fournis en arguments.
+     *
+     * @param[in] ligne - le numero de ligne.
+     * @param[in] colonne - le numero de colonne.
+     * @return la cellule (en lecture seule) correspondante.
+     */
+    const ElementSurface& lireElement (const int& ligne, const int& colonne) const;
 
 public:
+    /**
+     *
+     */
+    void changeElement (const int& ligne, const int& colonne, const ElementSurface& element);
 
-  /**
-   * Calcule le nombre de générations fourni en argument.
-   *
-   * @param[in] iterations - le nombre d'itérations à effectuer.
-   * @note Cette méthode est redéfinissable afin de laisser aux classes dérivées
-   *   la possibilité d'implémenter un autre algorithme de mise à jour
-   *   (éventuellement parallèle).
-   */
-  virtual void calculer(const int& iterations);
+    /**
+     *
+     */
+    void generationChemin (const int& ligne, const int& colonne);
 
-  /**
-   * Calcule la génération suivante.
-   *
-   * @note Cette méthode est redéfinissable afin de laisser aux classes dérivées
-   *   la possibilité d'implémenter un autre algorithme de mise à jour
-   *   (éventuellement parallèle).
-   */
-  virtual void suivante();
+    /**
+     *
+     */
+    void generationNenuphar (const int& ligne, const int& colonne);
+
+    /**
+     *
+     */
+    void affectationGrenouille (Grenouille grenouille) const;
+
+    /**
+     *
+     */
+    bool gagner (Grenouille grenouille) const;
+
+    /**
+     *
+     */
+    bool perdu (Grenouille grenouille) const;
 
 protected:
 
-  /**
-   * Dimension de ce jeu.
-   */
-  const int dimension_;
+    /**
+    * Dimension de ce jeu.
+    */
+    const int dimension_;
 
-  /**
-   * Nenuphars de ce jeu.
-   */
-  std::vector< Nenuphar > nenuphar_;
+    /**
+    * Cellules de ce jeu.
+    */
+    std::vector< ElementSurface > elementSurface_;
 
 };
 

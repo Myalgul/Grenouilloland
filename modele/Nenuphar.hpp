@@ -1,8 +1,7 @@
 #ifndef Nenuphar_hpp
 #define Nenuphar_hpp
 
-// Déclaration incomplète de la classe grenouilloland.
-class Grenouilloland;
+#include "ElementSurface.hpp"
 
 /**
  * @class Nenuphar Nenuphar.hpp
@@ -17,93 +16,55 @@ class Grenouilloland;
  *   d'initialiser un vecteur de nenuphars à partir de la valeur d'une nenuphar
  *   donnée.
  */
-class Nenuphar {
+class Nenuphar : public ElementSurface {
 public:
 
-  /**
-   * Constructeur logique instanciant une nenuphar morte.
-   *
-   * @param[in] ligne - la valeur de @ref ligne_.
-   * @param[in] colonne - la valeur de @ref colonne_.
-   */
-  Nenuphar(const int& ligne, const int& colonne);
-
-public:
-
-  /**
-   * Accesseur.
-   *
-   * @return la valeur de @ref ligne_.
-   */
-  const int& lireLigne() const;
-
-  /**
-   * Accesseur.
-   *
-   * @return la valeur de @ref colonne_.
-   */
-  const int& lireColonne() const;
+    /**
+    * Constructeur logique instanciant un nenuphar en utilisant le constructeur
+    * par de la classe ElementSurface.
+    */
+    using ElementSurface::ElementSurface;
+    void affectationGrenouille(Grenouille grenouille) const override;
 
 public:
 
-  /**
-   * Indique si cette nenuphar était vivante à l'itération précédente.
-   *
-   * @return @c true si cette nenuphar était vivante a l'itération précédente
-   *   sinon @c false.
-   */
-  const bool& etaitVivante() const;
+    /**
+    * Accesseur.
+    *
+    * @return la valeur de @ref ligne_.
+    */
+    const int& lireLigne() const;
 
-  /**
-   * Indique si cette nenuphar est vivante.
-   *
-   * @return @c true si cette nenuphar est vivante sinon @c false.
-   */
-  const bool& estVivante() const;
+    /**
+    * Accesseur.
+    *
+    * @return la valeur de @ref colonne_.
+    */
+    const int& lireColonne() const;
 
-public:
-
-  /**
-   * Fait basculer cette nenuphar d'un état à un autre.
-   */
-  void basculer();
-
-  /**
-   * Archive l'état de cette nenuphar.
-   */
-  void archiver();
-
-  /**
-   * Met a jour cette nenuphar en fonction de son état antérieur et celui de ses
-   * huit voisines.
-   *
-   * @param[in,out] proprietaire - le jeu de la vie propriétaire de cette
-   *   nenuphar.
-   */
-  void mettreAJour(Grenouilloland& proprietaire);
+    /**
+    * Accesseur.
+    *
+    * @return la valeur de @ref colonne_.
+    */
+    const char& lireRepresentation() const;
 
 protected:
 
-  /**
-   * Numéro de ligne de cette nenuphar.
-   */
-  int ligne_;
+    /**
+    * Numéro de ligne de ce nenuphar.
+    */
+    int ligne_;
 
-  /**
-   * Numéro de colonne de cette nenuphar.
-   */
-  int colonne_;
+    /**
+    * Numéro de colonne de ce nenuphar.
+    */
+    int colonne_;
 
-  /**
-   * Etat de cette nenuphar à l'itération précédente.
-   */
-  bool archive_;
-
-  /**
-   * Etat courant de cette nenuphar.
-   */
-  bool etat_;
-
+    /**
+    * Représentation de ce nenuphar.
+    */
+    int representation_;
 };
 
 #endif

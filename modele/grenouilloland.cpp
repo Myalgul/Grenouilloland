@@ -1,27 +1,35 @@
 /***************************************
  * Définition de la classe Grenouilloland. *
  ***************************************/
-
+#include <iostream>
+#include <string>
+#include <cstdlib>
 #include "Grenouilloland.hpp"
 
-/***************
+/*******************
  * Grenouilloland. *
- ***************/
+ *******************/
 
 Grenouilloland::Grenouilloland(const int& dimension):
-  dimension_(dimension) {
+    dimension_(dimension) {
 
-  // La méthode push_back invoque implicitement l'opérateur d'affectation par
-  // défaut de la classe Nenuphar. C'est pour cette raison que les attributs
-  // représentant les numeros de ligne et de colonne de la classe Nenuphar ne
-  // sont pas déclarés constants (même s'ils ne changent pas).
-  nenuphars_.reserve(dimension * dimension);
-  for (int i = 0; i < dimension; i ++) {
-    for (int j = 0; j < dimension; j ++) {
-      nenuphars_.push_back(Nenuphar(i, j));
+    // La méthode push_back invoque implicitement l'opérateur d'affectation par
+    // défaut de la classe Cellule. C'est pour cette raison que les attributs
+    // représentant les numeros de ligne et de colonne de la classe Cellule ne
+    // sont pas déclarés constants (même s'ils ne changent pas).
+    elementSurface_.reserve(dimension * dimension);
+    for (int i = 0; i < dimension; i ++) {
+        for (int j = 0; j < dimension; j ++) {
+//            int t = i * dimension_ + j;
+//            std::string ty = std::to_string(t);
+            elementSurface_.push_back(Eau(i, j, "e"));
+        }
     }
-  }
 
+    generationChemin(dimension-1, 0);
+
+    changeElement(0, dimension-1, NenupharImmortel(0, dimension-1, "i"));
+    changeElement(dimension-1, 0, NenupharImmortel(dimension-1, 0, "i"));
 }
 
 /******************
@@ -30,67 +38,107 @@ Grenouilloland::Grenouilloland(const int& dimension):
 
 const int&
 Grenouilloland::lireDimension() const {
-  return dimension_;
+    return dimension_;
 }
 
 /****************
- * lireNenuphar. *
+ * lireCellule. *
  ****************/
 
-const Nenuphar&
-Grenouilloland::lireNenuphar(const int& ligne, const int& colonne) const {
-  return nenuphars_[ligne * dimension_ + colonne];
-}
-
-/*************
- * basculer. *
- *************/
-
-void
-Grenouilloland::basculer(const int& ligne, const int& colonne) {
-  nenuphars_[ligne * dimension_ + colonne].basculer();
+const ElementSurface&
+Grenouilloland::lireElement(const int& ligne, const int& colonne) const {
+    return elementSurface_[ligne * dimension_ + colonne];
 }
 
 /******************
- * reinitialiser. *
+ * changeElement. *
  ******************/
 
 void
-Grenouilloland::reinitialiser() {
-  for (Nenuphar& nenuphar : nenuphars_) {
-    if (nenuphar.estVivante()) {
-      nenuphar.basculer();
+Grenouilloland::changeElement(const int& ligne, const int& colonne, const ElementSurface& element) {
+    int position = ligne * dimension_ + colonne;
+    elementSurface_.erase(elementSurface_.begin()+position);
+    elementSurface_.insert(elementSurface_.begin()+position, element);
+}
+
+/*********************
+ * generationChemin. *
+ *********************/
+
+void
+Grenouilloland::generationChemin(const int& ligne, const int& colonne) {
+
+    if (ligne == 0) {
+        for (int i = colonne; i < dimension_; i++) {
+            generationNenuphar(ligne, i);
+        }
+    } else if (colonne == dimension_) {
+        for (int i = 0; i < ligne; i++) {
+            generationNenuphar(i, dimension_-1);
+        }
+    } else {
+        for (int i = 0; i < ligne; i++) {
+            generationNenuphar(i, colonne);
+            generationNenuphar(i, dimension_-1);
+        }
+        for (int j = colonne; j < dimension_; j++) {
+            generationNenuphar(0, j);
+            generationNenuphar(ligne, j);
+        }
     }
-  }
 }
 
-/*************
- * calculer. *
- *************/
+/***********************
+ * generationNenuphar. *
+ ***********************/
 
 void
-Grenouilloland::calculer(const int& iterations) {
-  for (int i = 0; i < iterations; i ++) {
-    suivante();
-  }
+Grenouilloland::generationNenuphar(const int& ligne, const int& colonne) {
+
+    int num_rand = 4;
+
+    switch(num_rand%5) {
+        case 0 : changeElement(ligne, colonne, Nenuphar(ligne, colonne, "n"));
+                 break;
+        case 1 : changeElement(ligne, colonne, NenupharDopant(ligne, colonne, "d"));
+                 break;
+        case 2 : changeElement(ligne, colonne, NenupharMortel(ligne, colonne, "m"));
+                 break;
+        case 3 : changeElement(ligne, colonne, NenupharNutritif(ligne, colonne, "N"));
+                 break;
+        case 4 : changeElement(ligne, colonne, NenupharVeneneux(ligne, colonne, "v"));
+                 break;
+    }
 }
 
-/*************
- * suivante. *
- *************/
+/**************************
+ * affectationGrenouille. *
+ **************************/
 
 void
-Grenouilloland::suivante() {
-
-  // Premier balayage des nenuphars pour archivage.
-  for (Nenuphar& nenuphar : nenuphars_) {
-    nenuphar.archiver();
-  }
-
-  // Second balayage des nenuphars pour mise à jour.
-  for (Nenuphar& nenuphar : nenuphars_) {
-    nenuphar.mettreAJour(*this);
-  }
-
+Grenouilloland::affectationGrenouille(Grenouille grenouille) const {
+    ElementSurface elem = lireElement(grenouille.lireLigne(), grenouille.lireColonne());
+    elem.affectationGrenouille(grenouille);
+    std::cout << elem.lireRepresentation() << std::endl;
 }
 
+/***********
+ * gagner. *
+ ***********/
+
+bool
+Grenouilloland::gagner(Grenouille grenouille) const {
+    if ((grenouille.lireLigne() == 0) && (grenouille.lireColonne() == dimension_-1)) {
+        return true;
+    }
+    return false;
+}
+
+/**********
+ * perdu. *
+ **********/
+
+bool
+Grenouilloland::perdu(Grenouille grenouille) const {
+    return grenouille.estMorte();
+}
