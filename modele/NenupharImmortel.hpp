@@ -11,7 +11,8 @@ public:
     * par de la classe Nenuphar.
     */
     using Nenuphar::Nenuphar;
-    void affectationGrenouille(Grenouille grenouille) const override;
+    ~NenupharImmortel(){};
+    void affectationGrenouille(Grenouille* grenouille) const override;
 };
 
 #endif // NenupharImmortel_hpp

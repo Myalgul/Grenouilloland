@@ -29,6 +29,6 @@ Nenuphar::lireColonne() const {
  **************************/
 
 void
-Nenuphar::affectationGrenouille(Grenouille grenouille) const {
+Nenuphar::affectationGrenouille(Grenouille* grenouille) const {
 }
 

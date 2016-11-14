@@ -3,6 +3,9 @@
 
 #include "StrategieAffectationGrenouille.hpp"
 #include <iostream>
+#include <memory>
+
+typedef std::unique_ptr<ElementSurface> ptr_Element;
 
 /**
  * @class ElementSurface ElementSurface.hpp
@@ -27,7 +30,8 @@ public:
     * @param[in] colonne - la valeur de @ref colonne_.
     */
     ElementSurface(const int& ligne, const int& colonne, const std::string& representation);
-    void affectationGrenouille(Grenouille grenouille) const override;
+    virtual ~ElementSurface();
+    virtual void affectationGrenouille(Grenouille* grenouille) const = 0;
 
 public:
 

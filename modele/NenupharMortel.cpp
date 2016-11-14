@@ -10,7 +10,7 @@
  **************************/
 
 void
-NenupharMortel::affectationGrenouille(Grenouille grenouille) const {
-    grenouille.ecrireVie(0);
+NenupharMortel::affectationGrenouille(Grenouille* grenouille) const {
+    grenouille->ecrireVie(0);
 }
 

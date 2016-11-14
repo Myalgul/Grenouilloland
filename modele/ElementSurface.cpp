@@ -14,6 +14,8 @@ ElementSurface::ElementSurface(const int& ligne, const int& colonne, const std::
     colonne_(colonne),
     representation_(representation){
 }
+ElementSurface::~ElementSurface(){
+}
 
 /**************
  * lireLigne. *
@@ -42,7 +44,8 @@ ElementSurface::lireRepresentation() const {
 /**************************
  * affectationGrenouille. *
  **************************/
-void
-ElementSurface::affectationGrenouille(Grenouille grenouille) const {
-    grenouille.ecrireVie(0);
-}
+//void
+//ElementSurface::affectationGrenouille(Grenouille* grenouille) const {
+//    std::cout << "surface" << std::endl;
+//}
+

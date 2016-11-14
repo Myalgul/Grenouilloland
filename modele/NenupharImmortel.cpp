@@ -10,6 +10,6 @@
  **************************/
 
 void
-NenupharImmortel::affectationGrenouille(Grenouille grenouille) const {
+NenupharImmortel::affectationGrenouille(Grenouille* grenouille) const {
 }
 

@@ -50,13 +50,13 @@ public:
      * @param[in] colonne - le numero de colonne.
      * @return la cellule (en lecture seule) correspondante.
      */
-    const ElementSurface& lireElement (const int& ligne, const int& colonne) const;
+    const ElementSurface* lireElement (const int& ligne, const int& colonne) const;
 
 public:
     /**
      *
      */
-    void changeElement (const int& ligne, const int& colonne, const ElementSurface& element);
+    void changeElement (const int& ligne, const int& colonne, ElementSurface* element);
 
     /**
      *
@@ -71,7 +71,7 @@ public:
     /**
      *
      */
-    void affectationGrenouille (Grenouille grenouille) const;
+    void modification (Grenouille* grenouille) const;
 
     /**
      *
@@ -91,9 +91,10 @@ protected:
     const int dimension_;
 
     /**
-    * Cellules de ce jeu.
-    */
-    std::vector< ElementSurface > elementSurface_;
+     * Cellules de ce jeu.
+     */
+    std::vector< ElementSurface* > elementSurface_;
+//    std::vector< ptr_Element > elementSurface_;
 
 };
 

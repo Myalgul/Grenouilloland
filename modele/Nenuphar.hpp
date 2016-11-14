@@ -24,7 +24,8 @@ public:
     * par de la classe ElementSurface.
     */
     using ElementSurface::ElementSurface;
-    void affectationGrenouille(Grenouille grenouille) const override;
+    ~Nenuphar(){};
+    void affectationGrenouille(Grenouille* grenouille) const override;
 
 public:
 

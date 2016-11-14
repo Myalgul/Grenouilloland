@@ -10,10 +10,10 @@
  **************************/
 
 void
-NenupharNutritif::affectationGrenouille(Grenouille grenouille) const {
-    grenouille.ecrireVie(grenouille.lireVie()+1);
-    if (grenouille.estMalade()) {
-        grenouille.guerison();
+NenupharNutritif::affectationGrenouille(Grenouille* grenouille) const {
+    grenouille->ecrireVie(grenouille->lireVie()+1);
+    if (grenouille->estMalade()) {
+        grenouille->guerison();
     }
 }
 

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <stdlib.h>
 #include "Grenouilloland.hpp"
 
 /*******************
@@ -22,14 +23,14 @@ Grenouilloland::Grenouilloland(const int& dimension):
         for (int j = 0; j < dimension; j ++) {
 //            int t = i * dimension_ + j;
 //            std::string ty = std::to_string(t);
-            elementSurface_.push_back(Eau(i, j, "e"));
+            elementSurface_.push_back(new Eau(i, j, "e"));
         }
     }
 
     generationChemin(dimension-1, 0);
 
-    changeElement(0, dimension-1, NenupharImmortel(0, dimension-1, "i"));
-    changeElement(dimension-1, 0, NenupharImmortel(dimension-1, 0, "i"));
+    changeElement(0, dimension-1, new NenupharImmortel(0, dimension-1, "i"));
+    changeElement(dimension-1, 0, new NenupharImmortel(dimension-1, 0, "i"));
 }
 
 /******************
@@ -45,7 +46,7 @@ Grenouilloland::lireDimension() const {
  * lireCellule. *
  ****************/
 
-const ElementSurface&
+const ElementSurface*
 Grenouilloland::lireElement(const int& ligne, const int& colonne) const {
     return elementSurface_[ligne * dimension_ + colonne];
 }
@@ -55,7 +56,7 @@ Grenouilloland::lireElement(const int& ligne, const int& colonne) const {
  ******************/
 
 void
-Grenouilloland::changeElement(const int& ligne, const int& colonne, const ElementSurface& element) {
+Grenouilloland::changeElement(const int& ligne, const int& colonne, ElementSurface* element) {
     int position = ligne * dimension_ + colonne;
     elementSurface_.erase(elementSurface_.begin()+position);
     elementSurface_.insert(elementSurface_.begin()+position, element);
@@ -95,18 +96,18 @@ Grenouilloland::generationChemin(const int& ligne, const int& colonne) {
 void
 Grenouilloland::generationNenuphar(const int& ligne, const int& colonne) {
 
-    int num_rand = 4;
+    int num_rand = rand();
 
     switch(num_rand%5) {
-        case 0 : changeElement(ligne, colonne, Nenuphar(ligne, colonne, "n"));
+        case 0 : changeElement(ligne, colonne, new Nenuphar(ligne, colonne, "n"));
                  break;
-        case 1 : changeElement(ligne, colonne, NenupharDopant(ligne, colonne, "d"));
+        case 1 : changeElement(ligne, colonne, new NenupharDopant(ligne, colonne, "d"));
                  break;
-        case 2 : changeElement(ligne, colonne, NenupharMortel(ligne, colonne, "m"));
+        case 2 : changeElement(ligne, colonne, new NenupharMortel(ligne, colonne, "m"));
                  break;
-        case 3 : changeElement(ligne, colonne, NenupharNutritif(ligne, colonne, "N"));
+        case 3 : changeElement(ligne, colonne, new NenupharNutritif(ligne, colonne, "N"));
                  break;
-        case 4 : changeElement(ligne, colonne, NenupharVeneneux(ligne, colonne, "v"));
+        case 4 : changeElement(ligne, colonne, new NenupharVeneneux(ligne, colonne, "v"));
                  break;
     }
 }
@@ -116,10 +117,11 @@ Grenouilloland::generationNenuphar(const int& ligne, const int& colonne) {
  **************************/
 
 void
-Grenouilloland::affectationGrenouille(Grenouille grenouille) const {
-    ElementSurface elem = lireElement(grenouille.lireLigne(), grenouille.lireColonne());
-    elem.affectationGrenouille(grenouille);
-    std::cout << elem.lireRepresentation() << std::endl;
+Grenouilloland::modification(Grenouille* grenouille) const {
+    lireElement(grenouille->lireLigne(), grenouille->lireColonne())->affectationGrenouille(grenouille);
+//    std::cout << lireElement(grenouille->lireLigne(), grenouille->lireColonne())->lireLigne() << std::endl;
+//    std::cout << lireElement(grenouille->lireLigne(), grenouille->lireColonne())->lireColonne() << std::endl;
+//    std::cout << lireElement(grenouille->lireLigne(), grenouille->lireColonne())->lireRepresentation() << std::endl;
 }
 
 /***********

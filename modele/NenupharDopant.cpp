@@ -10,7 +10,7 @@
  **************************/
 
 void
-NenupharDopant::affectationGrenouille(Grenouille grenouille) const {
-    grenouille.ecrireVie(grenouille.lireVie()*2);
+NenupharDopant::affectationGrenouille(Grenouille* grenouille) const {
+    grenouille->ecrireVie(grenouille->lireVie()*2);
 }
 
